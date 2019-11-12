@@ -13,12 +13,17 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
+import com.example.fitapps.Stepglobal.stepglobal
 import kotlinx.android.synthetic.main.activity_step_today.*
 import java.sql.Date
 import java.time.Clock
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+
+object Stepglobal{
+    var stepglobal=0
+}
 
 class StepToday : AppCompatActivity(),SensorEventListener {
 
@@ -37,6 +42,9 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             // start your next activity
             startActivity(intent)
         }
+        println("K")
+        println(stepglobal)
+        println("K")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -109,8 +117,9 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             steps.text= "" + event.values[0].toInt()
             calotoday.text=""+calotodayint
             val stepse=event.values[0].toInt()
+            //Zapisanie aktualnych kroków.
+            Stepglobal.stepglobal
+            stepglobal=stepse.toInt()
         }
     }
-
-
 }

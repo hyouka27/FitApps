@@ -8,7 +8,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
+import com.example.fitapps.Position.positions
 
+object Position{
+    //Coś w stylu klasy statycznej, używamy do przesłania zmiennej do kolejnej aktywności w celu dobrania obliczeń według typu aktywności
+    var positions=0
+}
 class ListSteps : AppCompatActivity() {
     var array = arrayOf("Bieg", "Marsz", "Spacer")
 
@@ -33,6 +38,9 @@ class ListSteps : AppCompatActivity() {
                 Toast.makeText(applicationContext,
                     "Position :$position\nId aktywności  : $itemValue", Toast.LENGTH_LONG)
                     .show()
+                Position.positions;
+                //Przekazuje i konwertuje numer pozycji na liście przy pomocy object
+                positions =position.toInt()
                 startActivity(intent)
             }
         }
