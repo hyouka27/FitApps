@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import com.example.fitapps.Stepglobal.stepglobal
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_step_today.*
 import java.sql.Date
 import java.time.Clock
@@ -75,6 +76,14 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             R.id.menu_4 -> {
                 Toast.makeText(this, "Grafy", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
+                // start your next activity
+                startActivity(intent)
+                return true
+            }
+            R.id.menu_6 ->{
+                Toast.makeText(this, "Wylogowano", Toast.LENGTH_SHORT).show()
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, LoginActivity::class.java)
                 // start your next activity
                 startActivity(intent)
                 return true
