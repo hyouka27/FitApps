@@ -13,7 +13,14 @@ class EndRunActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_run)
         StepActivity.sum
-        textView.text=sum.toString()
+        println("endo")
+        val end=Stepglobal.stepglobal
+        println("endo")
+
+        println("ends")
+        val sum2=end- sum
+
+        textView.text=sum2.toString()+"Test"
         beck.setOnClickListener {
          val intent = Intent(this, StepToday::class.java)
     // start your next activity

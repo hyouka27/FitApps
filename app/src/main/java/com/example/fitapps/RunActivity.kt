@@ -52,6 +52,12 @@ class RunActivity  : AppCompatActivity() {
         if (!isWorking) {
             times.start()
             isWorking = true
+            val startos = Stepglobal.stepglobal
+            StepActivity.sum
+            println("suma")
+            sum=startos
+            println(sum)
+            println("suma")
         } else {
             times.stop()
             isWorking = false
@@ -69,9 +75,6 @@ class RunActivity  : AppCompatActivity() {
             ),
             Toast.LENGTH_SHORT
         ).show()
-        val end=Stepglobal.stepglobal
-        StepActivity.sum
-        sum=end-start
     }
         })
     }
