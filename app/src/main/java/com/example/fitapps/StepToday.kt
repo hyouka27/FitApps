@@ -11,10 +11,11 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import com.example.fitapps.Stepglobal.stepglobal
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.activity_step_today.*
 import java.sql.Date
 import java.time.Clock
@@ -23,9 +24,9 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
 object Stepglobal{
-    var stepglobal=0
-}
+    var stepglobal: Int=0
 
+}
 class StepToday : AppCompatActivity(),SensorEventListener {
 
     //zmienna do zapisywania kroków, obecnie wyłączona false
@@ -33,9 +34,11 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     var sensorManager:SensorManager? = null
     //TO_DO
     public val stepsy=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_step_today)
+
         //zmienna do użycja sensora
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         button.setOnClickListener {
@@ -43,7 +46,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             // start your next activity
             startActivity(intent)
         }
-        println("K")
         println(stepglobal)
         println("K")
     }
@@ -82,10 +84,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             }
             R.id.menu_6 ->{
                 Toast.makeText(this, "Wylogowano", Toast.LENGTH_SHORT).show()
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                // start your next activity
-                startActivity(intent)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -108,7 +106,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     //użycje sensora podczas pauzy - false
     override fun onPause() {
         super.onPause()
-        running = true
+        running = false
         sensorManager?.unregisterListener(this)
     }
 
@@ -129,7 +127,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             //Zapisanie aktualnych kroków.
             Stepglobal.stepglobal
             stepglobal=stepse
-
+            //addItem(currentuser, stepglobal.toString())
         }
     }
 }

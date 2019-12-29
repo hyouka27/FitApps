@@ -45,11 +45,9 @@ class RunActivity  : AppCompatActivity() {
         //access the button using id
         val btn = findViewById<Button>(R.id.btn)
         btn?.setOnClickListener(object : View.OnClickListener {
-
             var isWorking = false
-
-    override fun onClick(v: View) {
-        if (!isWorking) {
+            override fun onClick(v: View) {
+                if (!isWorking) {
             times.start()
             isWorking = true
             val startos = Stepglobal.stepglobal

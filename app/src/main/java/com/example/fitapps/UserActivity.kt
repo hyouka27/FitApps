@@ -12,7 +12,7 @@ class UserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
-        button2.setOnClickListener {
+        btnsave.setOnClickListener {
             val intent = Intent(this, UserEditActivity::class.java)
             // start your next activity
             startActivity(intent)

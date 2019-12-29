@@ -8,6 +8,7 @@
 
     <ListView
         android:id="@+id/rlists"
+        style="@android:style/Widget.DeviceDefault.ExpandableListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

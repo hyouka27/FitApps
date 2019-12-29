@@ -4,11 +4,13 @@
 
     <item
         android:id="@+id/menu_1"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="Menu"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/menu_2"
+        android:icon="@drawable/ic_menu_manage"
         android:title="Profil" />
 
     <item
