@@ -141,6 +141,36 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/setgender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/plec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wybierz płeć" />
+
+            <RadioButton
+                android:id="@+id/radioMEN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mężczyzna" />
+
+            <RadioButton
+                android:id="@+id/radioWOMEN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kobieta" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -152,7 +182,8 @@
             android:layout_weight="1"
             android:text="Zapisz"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="submitUser"/>
     </LinearLayout>
 
 </LinearLayout>
