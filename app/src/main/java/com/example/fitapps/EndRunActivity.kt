@@ -15,12 +15,19 @@ class EndRunActivity : AppCompatActivity() {
         StepActivity.sum
         println("endo")
         val end=Stepglobal.stepglobal
+        val ended2=StepActivity.sum2
         println("endo")
-
+        val score=ended2-end
         println("ends")
-        val sum2=end- sum
+        val startcalo=Stepglobal.calos
+        val endcalo=StepActivity.endcalo
+        val scorec=endcalo-startcalo
+        val time_start=StepActivity.startime
+        val time_end=StepActivity.endtime
 
-        textView.text=sum2.toString()+"Test"
+        val score_time=(time_end-time_start.second)
+        val scoretimeminuts=score_time/60
+        textView.text=score.toString()+" Kroki/ów " +scorec.toString()+" Kalorie/ów " +scoretimeminuts+" Minut"
         beck.setOnClickListener {
          val intent = Intent(this, StepToday::class.java)
     // start your next activity

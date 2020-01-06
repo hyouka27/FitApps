@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
+import com.example.fitapps.Stepglobal.calos
 import com.example.fitapps.Stepglobal.stepglobal
 import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.activity_step_today.*
@@ -25,7 +26,7 @@ import java.time.format.FormatStyle
 
 object Stepglobal{
     var stepglobal: Int=0
-
+    var calos:Int=0
 }
 class StepToday : AppCompatActivity(),SensorEventListener {
 
@@ -69,7 +70,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
                 return true
             }
             R.id.menu_3 -> {
-                Toast.makeText(this, "Historia katywności", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Mapy", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MapsActivity::class.java)
                 // start your next activity
                 startActivity(intent)
@@ -78,6 +79,13 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             R.id.menu_4 -> {
                 Toast.makeText(this, "Grafy", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
+                // start your next activity
+                startActivity(intent)
+                return true
+            }
+            R.id.menu_5 -> {
+                Toast.makeText(this, "Historia aktywności", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HistoryActivity::class.java)
                 // start your next activity
                 startActivity(intent)
                 return true
@@ -127,6 +135,8 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             //Zapisanie aktualnych kroków.
             Stepglobal.stepglobal
             stepglobal=stepse
+            Stepglobal.calos
+            calos=calotodayint
             //addItem(currentuser, stepglobal.toString())
         }
     }
