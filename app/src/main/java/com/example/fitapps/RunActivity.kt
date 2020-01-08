@@ -19,6 +19,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitapps.StepActivity.caloactivity
 import com.example.fitapps.StepActivity.endcalo
 import com.example.fitapps.StepActivity.endtime
 import com.example.fitapps.StepActivity.startcalo
@@ -34,6 +35,7 @@ object StepActivity{
     var endcalo=0
     var startime= LocalDateTime.now()
     var endtime=0
+    var caloactivity: Int=0
 }
 class RunActivity  : AppCompatActivity(), SensorEventListener {
 
@@ -136,8 +138,21 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent) {
         if (running==true) {
             //liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
+            val activitytype: Int=Position.positions
+            StepActivity.caloactivity
             val calo=0.05
-            val calotodays=calo*event.values[0]
+            if(caloactivity<1){
+                caloactivity=0.09.toInt()
+            }
+            if(activitytype>0||activitytype<2){
+                caloactivity=0.05.toInt()
+            }
+            if(activitytype>1){
+                caloactivity=0.02.toInt()
+            }
+
+
+            val calotodays=caloactivity*event.values[0]
             val calotodayint=calotodays.toInt()
             val stepse=event.values[0].toInt()
             //Zapisanie aktualnych kroków.
