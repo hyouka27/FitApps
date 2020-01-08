@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/constraint_layout">
+    android:id="@+id/constraint_layout"
+    android:screenOrientation="portrait">
 
     <LinearLayout
         android:id="@+id/l_layout"
@@ -18,7 +19,9 @@
         app:layout_constraintBottom_toTopOf="@+id/btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+
+        ></LinearLayout>
 
 
     <Button

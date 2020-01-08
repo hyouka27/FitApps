@@ -24,10 +24,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Login.CreateNewUserActivity" android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".Login.CreateNewUserActivity" android:theme="@style/AppTheme.NoActionBar"  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Login.LoginActivity"  android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Login.LoginActivity"  android:theme="@style/AppTheme.NoActionBar"  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +38,7 @@
         <activity android:name=".HistoryActivity" />
         <activity
             android:name=".MenuActivity"
-            android:parentActivityName=".StepToday"
+            android:parentActivityName=".StepToday" android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -47,17 +48,17 @@
         <activity
             android:name=".EndRunActivity"
             android:label="@string/title_activity_end_run"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"  android:screenOrientation="portrait"/>
         <activity
             android:name=".UserEditActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme" android:screenOrientation="portrait" />
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".RunActivity" />
-        <activity android:name=".ListSteps" />
-        <activity android:name=".StepToday"></activity>
+            android:theme="@style/AppTheme"  android:screenOrientation="portrait"/>
+        <activity android:name=".RunActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".ListSteps"  android:screenOrientation="portrait"/>
+        <activity android:name=".StepToday"  android:screenOrientation="portrait"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -72,7 +73,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
