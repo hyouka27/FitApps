@@ -36,7 +36,7 @@ object StepActivity{
     var endcalo=0
     var startime= LocalDateTime.now()
     var endtime=0
-    var caloactivity: Int=0
+    var caloactivity: Double=0.0
 }
 class RunActivity  : AppCompatActivity(), SensorEventListener {
 
@@ -142,14 +142,21 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             val activitytype: Int=Position.positions
             StepActivity.caloactivity
             val calo=0.05
-            if(caloactivity<1){
-                caloactivity=0.09.toInt()
+            //caloactivity=calo
+            if(activitytype<1){
+                caloactivity=0.5
+                println(caloactivity)
+                //Dla pierwszej aktywności id=0
             }
-            if(activitytype>0||activitytype<2){
-                caloactivity=0.05.toInt()
+            else if(activitytype>0||activitytype<2){
+                caloactivity=0.8
+                println(caloactivity)
+                //Dla drugiej aktywności id=1
+
             }
-            if(activitytype>1){
-                caloactivity=0.02.toInt()
+            else{caloactivity=0.9
+            println(caloactivity)
+                //Dla trzeciej aktywności id=2
             }
 
 
