@@ -1,26 +1,36 @@
 package com.example.fitapps.Database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import android.app.LauncherActivity
+import androidx.lifecycle.LiveData
+import androidx.room.*
+
 
 @Dao
 interface DAO {
+    @Query("SELECT * FROM User")
+    fun getAll():List<Users>
 
-    @Query("SELECT * FROM User where Email= :mail and Password= :password")
-    fun getUser(mail: String?, password: String?): Users?
 
     @Insert
-    fun insert(user: Users?)
+    fun insertAll(vararg users: Users)
 
-    @Query("SELECT * from User ORDER BY Age ASC")
-    fun getAlphabetizedWords(): List<Users>
+    @Delete
+    fun delete(users: Users)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(word: Users)
+    @Update
+    fun updateUsers(vararg users: Users)
 
-    @Query("DELETE FROM User")
-    suspend fun deleteAll()
+    @Query("SELECT Name FROM User")
+    fun getName():List<Users>
+
+    @Query("SELECT Age FROM User")
+    fun getAge():List<Users>
+
+    @Query("SELECT Hight FROM User")
+    fun getHight():List<Users>
+
+    @Query("SELECT Gross FROM User")
+    fun getGross():List<Users>
+
 
 }

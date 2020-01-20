@@ -3,7 +3,8 @@ package com.example.fitapps
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
+import com.example.fitapps.Database.Action
+import com.example.fitapps.Database.DAOHelp
 import kotlinx.android.synthetic.main.activity_end_run.*
 
 
@@ -28,17 +29,17 @@ class EndRunActivity : AppCompatActivity() {
         val score_time=(time_end-time_start.second)
         val scoretimeminuts=score_time/60
         textView.text=score.toString()+" Kroki/ów " +scorec.toString()+" Kalorie/ów " +scoretimeminuts+" Minut"
-        val channelId = "1"
-        var builder = NotificationCompat.Builder(this,channelId)
-            .setSmallIcon(R.drawable.common_google_signin_btn_icon_dark)
-            .setContentTitle("Zakończono aktywność")
-            .setContentText(score.toString())
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
 
         beck.setOnClickListener {
-         val intent = Intent(this, StepToday::class.java)
     // start your next activity
-        startActivity(intent)
-}
+            val db = DAOHelp(this)
+            var baza=db.getActDao().getAll()
+            if(baza!=null){
+                val intent = Intent(this, StepToday::class.java)
+                // start your next activity
+                startActivity(intent)
+                println("Testy są ok")
+            }
+            println("Testy są słabe") }
     }
 }

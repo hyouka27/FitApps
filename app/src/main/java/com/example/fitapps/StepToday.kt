@@ -11,18 +11,12 @@ import android.os.Build
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
-import androidx.core.view.GravityCompat
+import com.example.fitapps.Database.DAOHelp
+import com.example.fitapps.Database.Users
 import com.example.fitapps.Stepglobal.calos
 import com.example.fitapps.Stepglobal.stepglobal
-import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.activity_step_today.*
-import java.sql.Date
-import java.time.Clock
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 
 object Stepglobal{
     var stepglobal: Int=0
@@ -39,7 +33,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_step_today)
-
         //zmienna do użycja sensora
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         button.setOnClickListener {
@@ -49,6 +42,11 @@ class StepToday : AppCompatActivity(),SensorEventListener {
         }
         println(stepglobal)
         println("K")
+        //val db = DAOHelp(this)
+        //db.getUserDao().insertAll(Users("Title",5,7,5))
+        println("BAZA")
+        println("BAZA")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,20 +1,32 @@
 package com.example.fitapps.Database
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
-import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Users::class], version = 1)
-public abstract class DAOHelp : RoomDatabase()
+@Database(entities = [Users::class,Action::class], version = 5,exportSchema = false)
 
-{
-
+abstract class DAOHelp : RoomDatabase() {
     abstract fun getUserDao(): DAO
-    val db = databaseBuilder(
-        applicationContext,
-        DAO::class.java, "database-name"
-    ).build()
+    abstract fun getActDao(): ACT
+
+
+    companion object  {
+        @Volatile private var instance: DAOHelp? = null
+
+        private val LOCK = Any()
+
+        operator fun invoke(context: Context)= instance ?: synchronized(LOCK){
+            instance ?: buildDatabase(context).also { instance = it}
+        }
+
+        private fun buildDatabase (context: Context) = Room.databaseBuilder(context,
+            DAOHelp::class.java, "FitApps.db")
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
+    }
 
 }
