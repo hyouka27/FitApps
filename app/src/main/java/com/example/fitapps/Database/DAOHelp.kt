@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Users::class,Action::class], version = 5,exportSchema = false)
+@Database(entities = [Users::class,Action::class], version = 9,exportSchema = false)
 
 abstract class DAOHelp : RoomDatabase() {
     abstract fun getUserDao(): DAO
@@ -28,5 +28,4 @@ abstract class DAOHelp : RoomDatabase() {
             .allowMainThreadQueries()
             .build()
     }
-
 }

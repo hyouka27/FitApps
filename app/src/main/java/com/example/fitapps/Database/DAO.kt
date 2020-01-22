@@ -17,7 +17,10 @@ interface DAO {
     @Delete
     fun delete(users: Users)
 
-    @Update
+    @Query("SELECT id FROM User WHERE id = :id LIMIT 1")
+    fun getItemId(id: Int?): Int?
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateUsers(vararg users: Users)
 
     @Query("SELECT Name FROM User")
@@ -31,6 +34,4 @@ interface DAO {
 
     @Query("SELECT Gross FROM User")
     fun getGross():List<Users>
-
-
 }
