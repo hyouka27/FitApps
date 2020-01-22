@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val db = DAOHelp(this)
-        val empty=db.getUserDao().getAll()
+        val empty=db.getUserDao().getItemId(1)
         if(empty!=null){
             val intent = Intent(this, StepToday::class.java)
             // start your next activity

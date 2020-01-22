@@ -51,6 +51,9 @@ class EndRunActivity : AppCompatActivity() {
                 startActivity(intent)
                 println("Testy są ok")
             }
+            onBackPressed()
             println("Testy są słabe") }
+    }
+    override fun onBackPressed() {
     }
 }

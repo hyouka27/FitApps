@@ -47,6 +47,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
         println("BAZA")
         println("BAZA")
 
+        onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -139,4 +140,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             //addItem(currentuser, stepglobal.toString())
         }
     }
+    override fun onBackPressed() {
+    }
+
 }

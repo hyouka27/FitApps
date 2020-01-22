@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [Users::class,Action::class], version = 9,exportSchema = false)
+@Database(entities = [Users::class,Action::class], version = 11,exportSchema = false)
 
 abstract class DAOHelp : RoomDatabase() {
     abstract fun getUserDao(): DAO
