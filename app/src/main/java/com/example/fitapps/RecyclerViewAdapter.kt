@@ -22,6 +22,7 @@ class RecyclerViewAdapter(val actions: List<Action>)
         holder.name.text = actions[position].nAmes
         holder.steps.text="Kroki:  "+actions[position].sTeps.toString()
         holder.calo.text="Kalorie:  "+actions[position].cAlo.toString()
+        holder.time.text="Czas:  "+actions[position].tIme.toString()
     }
 
     override fun getItemCount(): Int {
@@ -41,5 +42,6 @@ class RecyclerViewAdapter(val actions: List<Action>)
         val name = itemView.tvName
         val steps=itemView.tvSteps
         val calo=itemView.tvCalo
+        val time=itemView.tvTime
     }
 }

@@ -27,15 +27,20 @@ import com.example.fitapps.StepActivity.startcalo
 import com.example.fitapps.StepActivity.sum
 import com.example.fitapps.StepActivity.sum2
 import kotlinx.android.synthetic.main.activity_step_today.*
+import java.text.SimpleDateFormat
+import java.time.DayOfWeek
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import java.util.*
 
 object StepActivity{
     var sum=0
     var sum2=0
     var startcalo=0
     var endcalo=0
-    var startime= LocalDateTime.now()
-    var endtime=0
+    var startime=LocalDateTime.now()
+    var endtime=LocalDateTime.now()
     var caloactivity: Double=0.0
 }
 class RunActivity  : AppCompatActivity(), SensorEventListener {
@@ -59,7 +64,8 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             ViewGroup.LayoutParams.MATCH_PARENT)
         layoutParams.setMargins(30, 40, 120, 40)
         times.layoutParams = layoutParams
-
+        var currentDateTime=LocalDateTime.now()
+        StepActivity.startime=currentDateTime
         val linearLayout = findViewById<LinearLayout>(R.id.l_layout)
         linearLayout?.addView(times)
         println("testend")
@@ -90,9 +96,8 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
                     endcalo=caloend
             val ended=StepActivity.sum2
                     sum2=ended
-            val timeednd=StepActivity.endtime
-                    val endtimes=LocalDateTime.now()
-                    endtime=endtimes.second
+                    var currentDateTime=LocalDateTime.now()
+                    endtime=currentDateTime
             isWorking = false
             startActivity(intent)
         }
@@ -144,17 +149,17 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             val calo=0.05
             //caloactivity=calo
             if(activitytype<1){
-                caloactivity=0.5
+                caloactivity=0.2
                 println(caloactivity)
                 //Dla pierwszej aktywności id=0
             }
             else if(activitytype>0||activitytype<2){
-                caloactivity=0.8
+                caloactivity=0.3
                 println(caloactivity)
                 //Dla drugiej aktywności id=1
 
             }
-            else{caloactivity=0.9
+            else{caloactivity=0.4
             println(caloactivity)
                 //Dla trzeciej aktywności id=2
             }
@@ -168,7 +173,6 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             StepActivity.sum2 =stepse
             StepActivity.endcalo
             StepActivity.endcalo =calotodayint
-            //addItem(currentuser, stepglobal.toString())
         }
     }
 }

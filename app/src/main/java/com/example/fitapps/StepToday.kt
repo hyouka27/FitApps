@@ -69,14 +69,14 @@ class StepToday : AppCompatActivity(),SensorEventListener {
                 return true
             }
             R.id.menu_3 -> {
-                Toast.makeText(this, "Mapy", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MapsActivity::class.java)
+                Toast.makeText(this, "Statystyki", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, StatsActivity::class.java)
                 // start your next activity
                 startActivity(intent)
                 return true
             }
             R.id.menu_4 -> {
-                Toast.makeText(this, "Grafy", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Empty", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 // start your next activity
                 startActivity(intent)

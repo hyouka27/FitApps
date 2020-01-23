@@ -39,4 +39,5 @@
     <string name="newaccount">Załóż nowe konto</string>
     <string name="login">Zaloguj</string>
     <string name="welcome_new">Witamy, nowego użytkownika :-)</string>
+    <string name="title_activity_stats">StatsActivity</string>
 </resources>
