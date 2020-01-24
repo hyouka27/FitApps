@@ -22,12 +22,10 @@ class UserActivity : AppCompatActivity() {
         editAges.text=age[0].aGe.toString()
         val hight=db.getUserDao().getHight()
         editHeights.text=hight[0].aHight.toString()
-
         btnsave.setOnClickListener {
             val intent = Intent(this, UserEditActivity::class.java)
             // start your next activity
             startActivity(intent)
         }
     }
-
 }
