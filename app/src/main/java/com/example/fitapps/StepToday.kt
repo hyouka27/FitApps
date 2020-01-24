@@ -68,30 +68,12 @@ class StepToday : AppCompatActivity(),SensorEventListener {
                 startActivity(intent)
                 return true
             }
+
             R.id.menu_3 -> {
-                Toast.makeText(this, "Statystyki", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, StatsActivity::class.java)
-                // start your next activity
-                startActivity(intent)
-                return true
-            }
-            R.id.menu_4 -> {
-                Toast.makeText(this, "Empty", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                // start your next activity
-                startActivity(intent)
-                return true
-            }
-            R.id.menu_5 -> {
                 Toast.makeText(this, "Historia aktywności", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, History::class.java)
                 // start your next activity
                 startActivity(intent)
-                return true
-            }
-            R.id.menu_6 ->{
-                Toast.makeText(this, "Wylogowano", Toast.LENGTH_SHORT).show()
-
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
