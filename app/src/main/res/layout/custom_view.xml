@@ -16,7 +16,7 @@
 
 
         <TextView
-            android:id="@+id/tvId"
+            android:id="@+id/Id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -26,50 +26,50 @@
             tools:text="100" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvCalo"
+            app:layout_constraintEnd_toStartOf="@+id/Calo"
             app:layout_constraintHorizontal_bias="0.324"
-            app:layout_constraintStart_toEndOf="@+id/tvId"
+            app:layout_constraintStart_toEndOf="@+id/Id"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             tools:text="Name" />
 
         <TextView
-            android:id="@+id/tvCalo"
+            android:id="@+id/Calo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvSteps"
-            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintEnd_toStartOf="@+id/Steps"
+            app:layout_constraintStart_toEndOf="@+id/Name"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.416"
             tools:text="Calo" />
 
         <TextView
-            android:id="@+id/tvSteps"
+            android:id="@+id/Steps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="53dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvTime"
-            app:layout_constraintStart_toEndOf="@+id/tvCalo"
+            app:layout_constraintEnd_toStartOf="@+id/Time"
+            app:layout_constraintStart_toEndOf="@+id/Calo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.416"
             tools:text="Steps" />
 
         <TextView
-            android:id="@+id/tvTime"
+            android:id="@+id/Time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

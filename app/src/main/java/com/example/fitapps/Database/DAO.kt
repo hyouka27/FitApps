@@ -1,15 +1,11 @@
 package com.example.fitapps.Database
-
-import android.app.LauncherActivity
-import androidx.lifecycle.LiveData
 import androidx.room.*
-
 
 @Dao
 interface DAO {
+    //Wyszukuje wszystko w tabeli User
     @Query("SELECT * FROM User")
     fun getAll():List<Users>
-
 
     @Insert
     fun insertAll(vararg users: Users)
@@ -23,6 +19,7 @@ interface DAO {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateUsers(vararg users: Users)
 
+    //Zapytania odniośnie wyciągania potrzebnych danych
     @Query("SELECT Name FROM User")
     fun getName():List<Users>
 

@@ -1,25 +1,19 @@
 package com.example.fitapps
-
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitapps.Database.DAOHelp
-import com.example.fitapps.Database.Users
-import kotlinx.android.synthetic.main.activity_create_new_user.*
-import kotlinx.android.synthetic.main.activity_step_today.*
 import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.activity_user.btnsave
 
-
 class UserActivity : AppCompatActivity() {
 
+    //Widok profilu użytkonwika
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
         val db = DAOHelp(this)
+        //Pobieranie danych z bazy
         val names=db.getUserDao().getName()
         editNames.text=names[0].nAme
         val gross=db.getUserDao().getGross()

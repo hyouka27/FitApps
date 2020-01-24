@@ -1,8 +1,6 @@
 package com.example.fitapps
-
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -10,7 +8,6 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Build
 import android.os.Bundle
-import android.os.Message
 import android.util.TypedValue
 import android.widget.Button
 import android.view.View
@@ -26,14 +23,9 @@ import com.example.fitapps.StepActivity.endtime
 import com.example.fitapps.StepActivity.startcalo
 import com.example.fitapps.StepActivity.sum
 import com.example.fitapps.StepActivity.sum2
-import kotlinx.android.synthetic.main.activity_step_today.*
-import java.text.SimpleDateFormat
-import java.time.DayOfWeek
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
-import java.util.*
 
+//Globalnie dostepne zmienne
 object StepActivity{
     var sum=0
     var sum2=0
@@ -45,7 +37,7 @@ object StepActivity{
 }
 class RunActivity  : AppCompatActivity(), SensorEventListener {
 
-
+    //Zmienne dla SensorManagera
     var running=true
     var sensorManager:SensorManager? = null
 
@@ -53,8 +45,8 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_run)
         val intent = Intent(this, EndRunActivity::class.java)
+        //Chronometr do licznika czasu
         val times = Chronometer(this)
-        println("test")
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         println(times.toString())
         times.setTextColor(Color.BLACK)
@@ -68,14 +60,14 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
         StepActivity.startime=currentDateTime
         val linearLayout = findViewById<LinearLayout>(R.id.l_layout)
         linearLayout?.addView(times)
-        println("testend")
         //Zapisuje z listy aktywnośći id typu aktywności
         println(Position.positions.toString())
-        println("testend")
         val start =Stepglobal.stepglobal
         val calostart=Stepglobal.calos
         //access the button using id
         val btn = findViewById<Button>(R.id.btn)
+
+        //Start/ stop i zapis danych do zmiennych globalnych
         btn?.setOnClickListener(object : View.OnClickListener {
             var isWorking = false
             override fun onClick(v: View) {
@@ -85,11 +77,8 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             val calostart=Stepglobal.calos
             val startos = Stepglobal.stepglobal
             StepActivity.sum
-            println("suma")
             sum=startos
             startcalo=calostart
-            println(sum)
-            println("suma")
         } else {
             times.stop()
              val caloend=StepActivity.endcalo
@@ -129,6 +118,7 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             sensorManager?.registerListener(this, stepsSensor, SensorManager.SENSOR_DELAY_UI)
         }
     }
+
     //użycje sensora podczas pauzy - false
     override fun onPause() {
         super.onPause()
@@ -157,13 +147,11 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
                 caloactivity=0.3
                 println(caloactivity)
                 //Dla drugiej aktywności id=1
-
             }
             else{caloactivity=0.4
             println(caloactivity)
                 //Dla trzeciej aktywności id=2
             }
-
 
             val calotodays=caloactivity*event.values[0]
             val calotodayint=calotodays.toInt()

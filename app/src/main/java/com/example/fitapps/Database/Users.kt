@@ -1,11 +1,9 @@
 package com.example.fitapps.Database
-
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
-
+//Tabela bazy danych z użytkownikiem
 @Entity(tableName = "User")
 data class Users(@PrimaryKey(autoGenerate = true) val id: Int?,
 @ColumnInfo(name = "Name") val nAme: String?,

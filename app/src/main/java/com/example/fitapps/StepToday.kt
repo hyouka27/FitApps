@@ -12,12 +12,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.example.fitapps.Database.DAOHelp
-import com.example.fitapps.Database.Users
 import com.example.fitapps.Stepglobal.calos
 import com.example.fitapps.Stepglobal.stepglobal
 import kotlinx.android.synthetic.main.activity_step_today.*
 
+//Zmienne dostepne globalnie
 object Stepglobal{
     var stepglobal: Int=0
     var calos:Int=0
@@ -27,7 +26,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     //zmienna do zapisywania kroków, obecnie wyłączona false
     var running=true
     var sensorManager:SensorManager? = null
-    //TO_DO
     public val stepsy=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,24 +35,17 @@ class StepToday : AppCompatActivity(),SensorEventListener {
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         button.setOnClickListener {
             val intent = Intent(this, ListSteps::class.java)
-            // start your next activity
             startActivity(intent)
         }
-        println(stepglobal)
-        println("K")
-        //val db = DAOHelp(this)
-        //db.getUserDao().insertAll(Users("Title",5,7,5))
-        println("BAZA")
-        println("BAZA")
-
         onBackPressed()
     }
 
+    //Dla menu bocznego
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
+    //Decyduje co jest w menu bocznym
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_1 -> {

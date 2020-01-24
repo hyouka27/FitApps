@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 
-
+//Schemat bazy danych Aktywności
 @Entity(tableName = "Activity")
 data class Action(
                   @PrimaryKey(autoGenerate = true) @ColumnInfo(name="Date") val dAte: Int?,

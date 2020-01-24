@@ -1,5 +1,4 @@
 package com.example.fitapps
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapps.Database.Action
 import kotlinx.android.synthetic.main.custom_view.view.*
 
+//Adapet dla widoku historii
 class RecyclerViewAdapter(val actions: List<Action>)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
 
@@ -17,6 +17,7 @@ class RecyclerViewAdapter(val actions: List<Action>)
         return ViewHolder(v)
     }
 
+    //Przypisujue zmienne do widoku
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
         holder.id.text = actions[position].dAte.toString()
         holder.name.text = actions[position].nAmes
@@ -37,11 +38,12 @@ class RecyclerViewAdapter(val actions: List<Action>)
         return super.getItemViewType(position)
     }
 
+    //Pobiera zmienne z widoku
     class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
-        val id = itemView.tvId
-        val name = itemView.tvName
-        val steps=itemView.tvSteps
-        val calo=itemView.tvCalo
-        val time=itemView.tvTime
+        val id = itemView.Id
+        val name = itemView.Name
+        val steps=itemView.Steps
+        val calo=itemView.Calo
+        val time=itemView.Time
     }
 }

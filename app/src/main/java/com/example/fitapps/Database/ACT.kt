@@ -1,12 +1,13 @@
 package com.example.fitapps.Database
-
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface ACT {
+    //Wyszukuje wszystko w tabeli Activity
     @Query("SELECT * FROM Activity")
     fun getAll():List<Action>
+
 
     @Insert
     fun insertAll(vararg action: Action)
@@ -20,6 +21,7 @@ interface ACT {
     @Update
     fun updateAct(vararg action: Action)
 
+    //Zapytania odnośnie pozyskania poszczególnych danych z bazy
     @Query("SELECT Name FROM Activity")
     fun getName():List<Action>
 
