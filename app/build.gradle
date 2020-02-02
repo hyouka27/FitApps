@@ -82,6 +82,4 @@ dependencies {
     implementation 'com.android.support:customtabs:29.0.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "org.jetbrains.anko:anko-commons:0.10.5"
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
 }

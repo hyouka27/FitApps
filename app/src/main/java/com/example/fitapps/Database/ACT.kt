@@ -8,7 +8,6 @@ interface ACT {
     @Query("SELECT * FROM Activity")
     fun getAll():List<Action>
 
-
     @Insert
     fun insertAll(vararg action: Action)
 
