@@ -22,6 +22,15 @@ class UserActivity : AppCompatActivity() {
         editAges.text=age[0].aGe.toString()
         val hight=db.getUserDao().getHight()
         editHeights.text=hight[0].aHight.toString()
+        val grosse=gross[0].gRoss.toString()
+        val grosseInt: Int=grosse.toInt()
+        val highte=hight[0].aHight.toString()
+        val hightInt: Int=highte.toInt()
+        //Przelicznik BMI, najpierw float
+        val bmi: Float=grosseInt.toFloat()/(hightInt.toFloat()/100*hightInt.toFloat()/100)
+        //Zmiana wyniku na Int
+        val bmiI: Int=bmi.toInt()
+        editBMI.text=bmiI.toString()
         btnsave.setOnClickListener {
             val intent = Intent(this, UserEditActivity::class.java)
             // start your next activity

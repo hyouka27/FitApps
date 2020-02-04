@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Wiek"
+            android:text="   Wiek"
             android:textAlignment="viewStart" />
 
         <EditText
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Waga" />
+            android:text="  Waga" />
 
         <EditText
             android:id="@+id/editGross"
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Imię" />
+            android:text="    Imię" />
 
         <EditText
             android:id="@+id/editName"
