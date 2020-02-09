@@ -22,12 +22,9 @@ class EndRunActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_run)
         StepActivity.sum
-        println("endo")
         val end=Stepglobal.stepglobal
         val ended2=StepActivity.sum2
-        println("endo")
         val score=ended2-end
-        println("ends")
         val startcalo=Stepglobal.calos
         val endcalo=StepActivity.endcalo
         //Warunek jeżeli nie ma kroków nie spala kalori, zabezpieczenie
@@ -35,6 +32,9 @@ class EndRunActivity : AppCompatActivity() {
             Caloplus.caloplus
             val scorec=0
             caloplus=scorec
+            Toast.makeText(this, "Za krótka aktywność, rusz się!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, StepToday::class.java)
+            startActivity(intent)
         }
         else if(score>0){
         val scorec=endcalo-startcalo

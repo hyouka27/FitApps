@@ -95,7 +95,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     }
 
     //zapis i wyświetlanie kroków plus data bieżąca
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onSensorChanged(event: SensorEvent) {
         if (running==true) {
             //liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
@@ -110,7 +109,6 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             stepglobal=stepse
             Stepglobal.calos
             calos=calotodayint
-            //addItem(currentuser, stepglobal.toString())
         }
     }
     override fun onBackPressed() {

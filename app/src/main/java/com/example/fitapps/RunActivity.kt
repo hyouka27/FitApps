@@ -130,7 +130,6 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
     }
 
     //zapis i wyświetlanie kroków plus data bieżąca
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onSensorChanged(event: SensorEvent) {
         if (running==true) {
             //liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
@@ -139,16 +138,16 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             val calo=0.05
             //caloactivity=calo
             if(activitytype<1){
-                caloactivity=0.2
+                caloactivity=0.07
                 println(caloactivity)
                 //Dla pierwszej aktywności id=0
             }
             else if(activitytype>0||activitytype<2){
-                caloactivity=0.3
+                caloactivity=0.06
                 println(caloactivity)
                 //Dla drugiej aktywności id=1
             }
-            else{caloactivity=0.4
+            else{caloactivity=0.05
             println(caloactivity)
                 //Dla trzeciej aktywności id=2
             }
