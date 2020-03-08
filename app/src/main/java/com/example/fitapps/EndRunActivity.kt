@@ -53,6 +53,7 @@ class EndRunActivity : AppCompatActivity() {
         Position.desc
         //Zapis aktywności do bazy danych
         val db = DAOHelp(this)
+        if (score!=0)
         db.getActDao().insertAll(Action(null,desc,id, caloplus,score,timese.toInt()))
         beck.setOnClickListener {
             val db = DAOHelp(this)
