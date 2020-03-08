@@ -20,9 +20,7 @@ class UserEditActivity : AppCompatActivity() {
             val editHei=editHeight.text.toString()
             //Zapis danych do bazy
             if ((editNam=="")||(editGro=="")||(editHei=="")||(editAge=="")){
-                val intent = Intent(this, UserActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this, "Błędne dane", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Uzupełnij wszystkie pola poprawnie.", Toast.LENGTH_SHORT).show()
             }
             else{
                 val db = DAOHelp(this)
