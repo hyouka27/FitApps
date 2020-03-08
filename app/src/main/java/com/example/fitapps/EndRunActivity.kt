@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_end_run.*
 import java.time.Duration
 import java.time.format.DateTimeFormatter
 
-//Zmienna globalna coś jak statyczna klasa
+//Zmienna globalna coś jak statyczna klasa.
 object Caloplus{
     var caloplus: Int=0
 }
@@ -25,9 +25,8 @@ class EndRunActivity : AppCompatActivity() {
         val end=Stepglobal.stepglobal
         val ended2=StepActivity.sum2
         val score=ended2-end
-        val startcalo=Stepglobal.calos
         val endcalo=StepActivity.endcalo
-        //Warunek jeżeli nie ma kroków nie spala kalori, zabezpieczenie
+        //Warunek jeżeli nie ma kroków nie spala się kalori, zabezpieczenie.
         if(score==0){
             Caloplus.caloplus
             val scorec=0
@@ -37,17 +36,15 @@ class EndRunActivity : AppCompatActivity() {
             startActivity(intent)
         }
         else if(score>0){
-        val scorec=endcalo-startcalo
-            caloplus=scorec
+            caloplus=endcalo
         }
         val time_start=StepActivity.startime
         val time_end=StepActivity.endtime
         val time=Duration.between(time_start,time_end)
         //Zapis czasu formatowanie
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
         val timese=time.toMinutes()
         var calominus: String= caloplus.toString()
-        //Wyśietlenie informacji o zakończonej aktywności
+        //Wyświetlenie informacji o zakończonej aktywności
         textView.text=score.toString()+" Kroki/ów " + calominus+" Kalorie/ów " +timese+" Minut"
         val id=Position.positions
         Position.desc

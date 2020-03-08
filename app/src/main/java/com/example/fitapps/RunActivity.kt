@@ -20,16 +20,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fitapps.StepActivity.caloactivity
 import com.example.fitapps.StepActivity.endcalo
 import com.example.fitapps.StepActivity.endtime
-import com.example.fitapps.StepActivity.startcalo
 import com.example.fitapps.StepActivity.sum
 import com.example.fitapps.StepActivity.sum2
 import java.time.LocalDateTime
 
-//Globalnie dostepne zmienne
+//Globalnie dostępne zmienne
 object StepActivity{
     var sum=0
     var sum2=0
-    var startcalo=0
     var endcalo=0
     var startime=LocalDateTime.now()
     var endtime=LocalDateTime.now()
@@ -60,10 +58,6 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
         StepActivity.startime=currentDateTime
         val linearLayout = findViewById<LinearLayout>(R.id.l_layout)
         linearLayout?.addView(times)
-        //Zapisuje z listy aktywnośći id typu aktywności
-        println(Position.positions.toString())
-        val start =Stepglobal.stepglobal
-        val calostart=Stepglobal.calos
         //access the button using id
         val btn = findViewById<Button>(R.id.btn)
 
@@ -74,18 +68,14 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
                 if (!isWorking) {
             times.start()
             isWorking = true
-            val calostart=Stepglobal.calos
-            val startos =StepActivity.sum
+            val startos=0
             sum=startos
-            startcalo=calostart
         } else {
             times.stop()
-             val caloend=StepActivity.endcalo
-                    endcalo=caloend
             val ended=StepActivity.sum2
                     sum2=ended
-                    var currentDateTime=LocalDateTime.now()
-                    endtime=currentDateTime
+                    var currentsDateTime=LocalDateTime.now()
+                    endtime=currentsDateTime
             isWorking = false
             startActivity(intent)
         }
@@ -105,7 +95,7 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
         })
     }
 
-    //użycie sensora podczas włączenia aplikacji true
+    //Użycie sensora podczas włączenia aplikacji true
     override fun onResume() {
         super.onResume()
         running = true
@@ -118,7 +108,7 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
         }
     }
 
-    //użycje sensora podczas pauzy - false
+    //Użycje sensora podczas pauzy - false
     override fun onPause() {
         super.onPause()
         running = false
@@ -128,35 +118,34 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
 
-    //zapis i wyświetlanie kroków plus data bieżąca
+    //Zapis i wyświetlanie kroków plus data bieżąca
     override fun onSensorChanged(event: SensorEvent) {
         if (running==true) {
-            //liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
+            //Liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
             val activitytype: Int=Position.positions
             StepActivity.caloactivity
-            val calo=0.05
-            //caloactivity=calo
             if(activitytype<1){
-                caloactivity=0.02
+                caloactivity=0.08
                 println(caloactivity)
                 //Dla pierwszej aktywności id=0
             }
             else if(activitytype>0||activitytype<2){
-                caloactivity=0.03
+                caloactivity=0.07
                 println(caloactivity)
                 //Dla drugiej aktywności id=1
             }
-            else{caloactivity=0.04
+            else{caloactivity=0.06
             println(caloactivity)
                 //Dla trzeciej aktywności id=2
             }
 
-            val calotodays=caloactivity*event.values[0]
+            val calotodays=caloactivity*((sum2-sum)+500)
             val calotodayint=calotodays.toInt()
             val stepse=event.values[0].toInt()
             //Zapisanie aktualnych kroków.
             StepActivity.sum2
             StepActivity.sum2 =stepse
+            StepActivity.sum =stepse
             StepActivity.endcalo
             StepActivity.endcalo =calotodayint
         }

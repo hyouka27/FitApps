@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_user.btnsave
 
 class UserActivity : AppCompatActivity() {
 
-    //Widok profilu użytkonwika
+    //Widok profilu użytkownika
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
@@ -33,7 +33,6 @@ class UserActivity : AppCompatActivity() {
         editBMI.text=bmiI.toString()
         btnsave.setOnClickListener {
             val intent = Intent(this, UserEditActivity::class.java)
-            // start your next activity
             startActivity(intent)
         }
     }

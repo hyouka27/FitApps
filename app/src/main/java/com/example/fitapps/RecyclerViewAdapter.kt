@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapps.Database.Action
 import kotlinx.android.synthetic.main.custom_view.view.*
 
-//Adapet dla widoku historii
+//Adapter dla widoku historii
 class RecyclerViewAdapter(val actions: List<Action>)
     : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
 
@@ -17,7 +17,7 @@ class RecyclerViewAdapter(val actions: List<Action>)
         return ViewHolder(v)
     }
 
-    //Przypisujue zmienne do widoku
+    //Przypisuje zmienne do widoku
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int) {
         holder.id.text = actions[position].dAte.toString()
         holder.name.text = actions[position].nAmes

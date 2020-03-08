@@ -23,7 +23,7 @@ object Stepglobal{
 }
 class StepToday : AppCompatActivity(),SensorEventListener {
 
-    //zmienna do zapisywania kroków, obecnie wyłączona false
+    //Zmienna do zapisywania kroków
     var running=true
     var sensorManager:SensorManager? = null
     public val stepsy=null
@@ -72,7 +72,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     }
 
 
-    //użycie sensora podczas włączenia aplikacji true
+    //Użycie sensora podczas włączenia aplikacji true
     override fun onResume() {
         super.onResume()
         running = true
@@ -84,7 +84,7 @@ class StepToday : AppCompatActivity(),SensorEventListener {
             sensorManager?.registerListener(this, stepsSensor, SensorManager.SENSOR_DELAY_UI)
         }
     }
-    //użycje sensora podczas pauzy - false
+    //Użycje sensora podczas pauzy - false
     override fun onPause() {
         super.onPause()
         running = false
@@ -94,10 +94,10 @@ class StepToday : AppCompatActivity(),SensorEventListener {
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
     }
 
-    //zapis i wyświetlanie kroków plus data bieżąca
+    //Zapis i wyświetlanie kroków plus data bieżąca
     override fun onSensorChanged(event: SensorEvent) {
         if (running==true) {
-            //liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
+            //Liczenie ile kroków to kaloria, musi być float gdyż przelicznik jest zbyt mały by robić to na incie
             val calo=0.05
             val calotodays=calo*event.values[0]
             val calotodayint=calotodays.toInt()
