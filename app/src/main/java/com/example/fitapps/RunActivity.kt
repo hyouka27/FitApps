@@ -75,8 +75,7 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             times.start()
             isWorking = true
             val calostart=Stepglobal.calos
-            val startos = Stepglobal.stepglobal
-            StepActivity.sum
+            val startos =StepActivity.sum
             sum=startos
             startcalo=calostart
         } else {
@@ -138,16 +137,16 @@ class RunActivity  : AppCompatActivity(), SensorEventListener {
             val calo=0.05
             //caloactivity=calo
             if(activitytype<1){
-                caloactivity=0.07
+                caloactivity=0.02
                 println(caloactivity)
                 //Dla pierwszej aktywności id=0
             }
             else if(activitytype>0||activitytype<2){
-                caloactivity=0.06
+                caloactivity=0.03
                 println(caloactivity)
                 //Dla drugiej aktywności id=1
             }
-            else{caloactivity=0.05
+            else{caloactivity=0.04
             println(caloactivity)
                 //Dla trzeciej aktywności id=2
             }
